@@ -69,9 +69,14 @@ const Packages = () => {
   const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
   const navigate = useNavigate();
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const handleSelectPackage = (packageId: string) => {
     setSelectedPackage(packageId);
     navigate('/form', { state: { selectedPackage: packageId } });
+    setTimeout(scrollToTop, 100);
   };
 
   return (

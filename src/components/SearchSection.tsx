@@ -12,6 +12,10 @@ export const SearchSection = () => {
   const [dateRange, setDateRange] = useState('');
   const navigate = useNavigate();
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const handleSearch = () => {
     // Navigate to archive with search parameters
     const params = new URLSearchParams();
@@ -20,6 +24,7 @@ export const SearchSection = () => {
     if (dateRange) params.append('date', dateRange);
     
     navigate(`/archive?${params.toString()}`);
+    setTimeout(scrollToTop, 100);
   };
 
   return (
